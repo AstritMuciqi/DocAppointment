@@ -27,9 +27,9 @@ Auth::routes();
 
  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware'=>['auth','admin']], function(){
-   Route::resource('doctor','App\Http\Controllers\DoctorController');
-});
+// Route::group(['middleware'=>['auth','admin']], function(){
+//    Route::resource('doctor','App\Http\Controllers\DoctorController');
+// });
 
 Route::group(['middleware'=>['auth','doctor']], function(){
     Route::resource('appointment','App\Http\Controllers\AppointmentController');
