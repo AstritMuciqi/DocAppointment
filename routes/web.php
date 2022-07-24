@@ -25,11 +25,11 @@ Route::get('/dashboard', function () {
 
 Auth::routes();
 
- Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::group(['middleware'=>['auth','admin']], function(){
-//    Route::resource('doctor','App\Http\Controllers\DoctorController');
-// });
+Route::group(['middleware'=>['auth','admin']], function(){
+   Route::resource('doctor','App\Http\Controllers\DoctorController');
+});
 
 Route::group(['middleware'=>['auth','doctor']], function(){
     Route::resource('appointment','App\Http\Controllers\AppointmentController');
@@ -39,3 +39,8 @@ Route::group(['middleware'=>['auth','doctor']], function(){
         name('update');
 });  
 
+Route::get('/', 'App\Http\Controllers\FrontendController@index');
+
+Route::get('/new-appointment/{doctorId}/{date}', 'App\Http\Controllers\FrontendController@show')->name('create.appointment');
+
+Route::get('/dashboard','App\Http\Controllers\DashboardController@index');

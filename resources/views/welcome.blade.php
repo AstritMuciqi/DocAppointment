@@ -13,13 +13,18 @@
                 ium at delectus quia corporis blanditiis, aperiam distinctio et velit maxime cumque animi molestiae atque 
                 unde deserunt ratione cum similique aut exercitationem.</p>
                 <div class="mt-5">
+                    <a href="{{url('/register')}}">
                     <button class="btn btn-success">Register as Patient
-                    </button>
-                    <button class="btn btn-secondary">Login</button>
+                    </button> 
+                    </a>
+                        <a href="{{url('login')}}"><button class="btn btn-secondary">Login</button>
+                    </a>
                 </div>
         </div>
     </div>
     <hr>
+    <form action="{{url('/')}}" method="GET">
+
     <div class="card">
         <div class="card-body">
             <div class="card-header">Find Doctors</div>
@@ -41,6 +46,7 @@
         </div>
 
     </div>
+    </form>
 
 
 
@@ -61,22 +67,29 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($doctors  as  $doctor)
+                            
+                            
                         <tr>
                             <th scope="row">1</th>
                             <td>
-                                <img src="/doctor/doctor.png" width="100px" style="border-radius: 50%;
+                                <img src="{{asset('images')}}/{{$doctor->doctor->image}}" width="100px" style="border-radius: 50%;
                                     ">
                             </td>
                             <td>
-                                Name of Doctor
+                            {{$doctor->doctor->name}}
                             </td>
                             <td>
-                                Cardiologist
+                            {{$doctor->doctor->department}}
                             </td>
                             <td>
-                                <button class="btn btn-success">Book Appointment</button>
+                                <a href="{{route('create.appointment',[$doctor->user_id, $doctor->date])}}"><button class="btn btn-success">Book Appointment</button></a>
                             </td>
                         </tr>
+                        @empty
+                        <td>No doctors available today</td>
+                        @endforelse
+
                     </tbody>
 
                 </table>

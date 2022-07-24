@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-use App\Appointment;
+use App\Models\Appointment;
+use App\Models\Time;
+use App\Models\User;
+
+
 class FrontendController extends Controller
 {
     
     public function index()
     {
-      date_default_timezone_set('Australia/Melbourne');
+      date_default_timezone_set('Europe/Tirane');
       if(request('date')){
        $doctors =$this->findDoctorsBasedOnDate(request('date'));
        return view('Welcome',compact('doctors'));
