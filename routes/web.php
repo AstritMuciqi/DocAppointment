@@ -44,3 +44,7 @@ Route::get('/', 'App\Http\Controllers\FrontendController@index');
 Route::get('/new-appointment/{doctorId}/{date}', 'App\Http\Controllers\FrontendController@show')->name('create.appointment');
 
 Route::get('/dashboard','App\Http\Controllers\DashboardController@index');
+
+Route::post('/book/appointment','FrontendController@store')->name('booking.appointment')->middleware('auth');
+
+Route::get('/my-booking','FrontendController@myBookings')->name('my.booking');
