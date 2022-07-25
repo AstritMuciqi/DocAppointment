@@ -48,6 +48,16 @@ Route::get('/new-appointment/{doctorId}/{date}', 'App\Http\Controllers\FrontendC
 
 Route::get('/dashboard','App\Http\Controllers\DashboardController@index');
 
-Route::post('/book/appointment','App\Http\Controllers\FrontendController@store')->name('booking.appointment')->middleware('auth');
+Route::group(['middleware'=>['auth','patient']], function(){
 
-Route::get('/my-booking','App\Http\Controllers\FrontendController@myBookings')->name('my.booking');
+    Route::post('/book/appointment','App\Http\Controllers\FrontendController@store')->name('booking.appointment');
+
+    Route::get('/my-booking','App\Http\Controllers\FrontendController@myBookings')->name('my.booking');
+
+    Route::get('/user-profile', 'App\Http\Controllers\ProfileController@index');
+
+    Route::post('/profile', 'App\Http\Controllers\ProfileController@store')->name('profile.store');
+
+    Route::post('/profile-pic','App\Http\Controllers\ProfileController@profilePic')->name('profile.pic');
+
+});

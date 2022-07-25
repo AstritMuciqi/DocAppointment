@@ -61,7 +61,7 @@
                                 </li>
                             @endif
                         @else
-                            @if(auth()->user()->role->name === 'patient')
+                            @if(auth()->check() && auth()->user()->role->name === 'patient')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('my.booking') }}">{{ __('My Booking') }}</a>
                             </li>
@@ -73,6 +73,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if(auth()->check() && auth()->user()->role->name === 'patient')
+                                    <a href="{{url('user-profile')}}" class="dropdown-item">Profile</a>
+                                    @else
+                                    <a href="{{url('dashboard')}}" class="dropdown-item">Dashboard</a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
