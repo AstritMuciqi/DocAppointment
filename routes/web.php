@@ -29,9 +29,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware'=>['auth','admin']], function(){
    Route::resource('doctor','App\Http\Controllers\DoctorController');
-   Route::get('/patients','App\Http\Controllers\PatientlistController@index')->name('patient');
-   Route::get('/patients/all','App\Http\Controllers\PatientlistController@allTimeAppointment')->name('all.appointments');
-   Route::get('/status/update/{id}','App\Http\Controllers\PatientlistController@tog gleStatus')->name('update.status');
 });
 
 Route::group(['middleware'=>['auth','doctor']], function(){
@@ -40,24 +37,43 @@ Route::group(['middleware'=>['auth','doctor']], function(){
         name('appointment.check');
     Route::post('/appointment/update', 'App\Http\Controllers\AppointmentController@updateTime') ->
         name('update');
+
+
+Route::get('patient-today','PrescriptionController@index')->name('patients.today');
+Route::post('/prescription','PrescriptionController@store')->name('prescription');
+
+Route::get('/prescription/{userId}/{date}','
+PrescriptionController@show')->name('prescription.show');
+
+Route::get('/prescribed-patients','
+PrescriptionController@patientsFromPrescription')->name('prescribed.patients');
+
+
 });  
+
 
 Route::get('/', 'App\Http\Controllers\FrontendController@index');
 
 Route::get('/new-appointment/{doctorId}/{date}', 'App\Http\Controllers\FrontendController@show')->name('create.appointment');
 
+//
+// Route::group(['middleware'=>['auth','patient']],function(){
+
+// 	Route::post('/book/appointment','FrontendController@store')->name('booking.appointment');
+
+// 	Route::get('/my-booking','FrontendController@myBookings')->name('my.booking');
+
+// 	Route::get('/user-profile','ProfileController@index');
+// 	Route::post('/user-profile','ProfileController@store')->name('profile.store');
+// 	Route::post('/profile-pic','ProfileController@profilePic')->name('profile.pic');
+// 	Route::get('/my-prescription','FrontendController@myPrescription')->name('my.prescription');
+
+
+// });
+
+
 Route::get('/dashboard','App\Http\Controllers\DashboardController@index');
 
-Route::group(['middleware'=>['auth','patient']], function(){
+Route::post('/book/appointment','App\Http\Controllers\FrontendController@store')->name('booking.appointment')->middleware('auth');
 
-    Route::post('/book/appointment','App\Http\Controllers\FrontendController@store')->name('booking.appointment');
-
-    Route::get('/my-booking','App\Http\Controllers\FrontendController@myBookings')->name('my.booking');
-
-    Route::get('/user-profile', 'App\Http\Controllers\ProfileController@index');
-
-    Route::post('/profile', 'App\Http\Controllers\ProfileController@store')->name('profile.store');
-
-    Route::post('/profile-pic','App\Http\Controllers\ProfileController@profilePic')->name('profile.pic');
-
-});
+Route::get('/my-booking','App\Http\Controllers\FrontendController@myBookings')->name('my.booking');

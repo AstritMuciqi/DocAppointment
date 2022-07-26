@@ -8,6 +8,7 @@ use App\Models\Appointment;
 use App\Models\Time;
 use App\Models\User;
 use App\Models\Booking;
+use App\Prescription;
 use App\Mail\AppointmentMail;
 
 
@@ -100,14 +101,11 @@ public function myBookings(){
   return view('booking.index',compact('appointments'));
 }
 
-public function doctorToday(Request $request){
-  $doctors = Appointment::with('doctor')->whereDate('date',date('Y-m-d'))->get();
-  return $doctors;
+public function myPrescription()
+{
+    $prescriptions = Prescription::where('user_id',auth()->user()->id)->get();
+    return view('my-prescription',compact('prescriptions'));
 }
 
-public function findDoctors(Request $request){
-  $doctors = Appointment::with('doctor')->whereDate('date',$request->date)->get();
-  return $doctors;
-}
 
 }
