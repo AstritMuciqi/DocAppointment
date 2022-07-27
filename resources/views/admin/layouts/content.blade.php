@@ -10,7 +10,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Patients</h6>
-                                                <h2>{{App\User::where('role_id',3)->count()}}</h2>
+                                                <h2>{{App\Models\User::where('role_id',3)->count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-users"></i>
@@ -29,7 +29,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Doctors</h6>
-                                                <h2>{{App\User::where('role_id',1)->count()}}</h2>
+                                                <h2>{{App\Models\User::where('role_id',1)->count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-user-plus"></i>
@@ -48,7 +48,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Roles</h6>
-                                                <h2>{{App\Role::count()}}</h2>
+                                                <h2>{{App\Models\Role::count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-user-check"></i>
@@ -67,7 +67,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Booking</h6>
-                                                <h2>{{App\Booking::count()}}</h2>
+                                                <h2>{{App\Models\Booking::count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-message-square"></i>
@@ -87,7 +87,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Prescription</h6>
-                                                <h2>{{App\Prescription::count()}}</h2>
+                                                <h2>{{App\Models\Prescription::count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-align-justify"></i>
@@ -107,7 +107,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Department</h6>
-                                                <h2>{{App\Department::count()}}</h2>
+                                                <h2>{{App\Models\Department::count()}}</h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-home"></i>

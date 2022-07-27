@@ -48,9 +48,6 @@
     </div>
     </form>
 
-
-
-
     <div class="card">
         <div class="card-body">
             <div class="card-header"> Doctors</div>

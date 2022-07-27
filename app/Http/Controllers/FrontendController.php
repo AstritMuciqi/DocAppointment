@@ -8,7 +8,7 @@ use App\Models\Appointment;
 use App\Models\Time;
 use App\Models\User;
 use App\Models\Booking;
-use App\Prescription;
+use App\Models\Prescription;
 use App\Mail\AppointmentMail;
 
 
