@@ -64,12 +64,12 @@
                                                     <td>{{$user->phone_number}}</td>
                                                     <td>{{$user->department}}</td>
                                                     <td>
-                                                        <div class="table-actions">
-                                                            <a href="#" data-toggle="modal" data-target="#exampleModal{{$user->id}}">
+                                                        <div style="font-size:25px" class="table-actions">
+                                                            <a style="color:blue" href="#" data-toggle="modal" data-target="#exampleModal{{$user->id}}">
                                                                 <i class="ik ik-eye"></i>
                                                             </a>
-                                                            <a href="{{route('doctor.edit',[$user->id])}}"><i class="ik ik-edit-2"></i></a>
-                                                            <a href="{{route('doctor.show',[$user->id])}}"><i class="ik ik-trash-2"></i></a>
+                                                            <a style="color:green" href="{{route('doctor.edit',[$user->id])}}"><i class="ik ik-edit-2"></i></a>
+                                                            <a style="color:red" href="{{route('doctor.show',[$user->id])}}"><i class="ik ik-trash-2"></i></a>
                                                         </div>
                                                     </td>
                                                     <td></td>

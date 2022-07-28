@@ -8,18 +8,20 @@
             <div class="card">
                 <div class="card-header">Appointments ({{$bookings->count()}})</div>
                 <form action="{{route('patient')}}" method="GET">
-                <div class="card-header">
-                  Filter:
-                  <div class="row">
-                  <div class="col-md-10">
-                    <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toogle="datetimepicker" data-target="#datepicker" name="date">
+                  <div class="card-header">
+                      Filter:
+                      <div class="row">
+                      <div class="col-md-10">
+                          <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
+                      </div>
+                      <div class="col-md-2">
+                          <button type="submit" class="btn btn-primary">Search</button>
+                          
+                      </div>
                   </div>
-                  <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                  </div>
-                </div>
-              </div>
-            </form>
+                  
+                  </div>                
+                </form>
 
                 <div class="card-body">
                     <table class="table table-striped">

@@ -55,17 +55,16 @@
                                                     <td>{{$department->department}}</td>
                                                   
                                                     <td>
-                                                        <div class="table-actions">
+                                                        <div style="display:flex;justify-content:center;" class="table-actions">
 
-                                                            <a href="{{route('department.edit',[$department->id])}}"><i class="ik ik-edit-2"></i></a>
+                                                            <a style="font-size:20px;color:green" href="{{route('department.edit',[$department->id])}}"><i class="ik ik-edit-2"></i></a>
                                                      
                                                             <form action="{{route('department.destroy',[$department->id])}}" method="post">@csrf
                                                                 @method('DELETE')
-                                                                <button type="submit"><i class="ik ik-trash-2"></i></button>
+                                                                <button style="border:none;background:white;color:red;margin-left:4px;font-size:20px" type="submit"><i class="ik ik-trash-2"></i></button>
                                                             </form>
                                                         </div>
                                                     </td>
-                                                    <td>x</td>
                                                 </tr>
                                             <tr>
 
