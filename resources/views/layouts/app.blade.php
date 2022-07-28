@@ -24,10 +24,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav style="font-weight:bold;font-size:14px;background:#3EACC2;color:#fff" class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a style="font-size:18px" class="navbar-brand" href="{{ url('/') }}">
+                    Doctor Booking
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,33 +43,36 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a style="color:white;" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a style="color:white;" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             @if(auth()->check() && auth()->user()->role->name === 'patient')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('my.booking') }}">{{ __('My Booking') }}</a>
+                                <a style="color:white;" class="nav-link" href="{{ route('my.booking') }}">{{ __('My Booking') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a style="color:white;" class="nav-link" href="{{ route('my.prescription') }}">{{ __('My Prescriptions') }}</a>
+                            </li>
+
                             @endif
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a style="color:white; text-transform: capitalize;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div style="margin-right:-30px;max-width:90px;min-width:90px;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     @if(auth()->check() && auth()->user()->role->name === 'patient')
-                                    <a href="{{url('user-profile')}}" class="dropdown-item">Profile</a>
-                                    <a class="dropdown-item" href="{{ route('my.prescription') }}">{{ __('My Prescriptions') }}</a>
+                                    <a style="font-weight:bold;width:80px" href="{{url('user-profile')}}" class="dropdown-item">Profile</a>
                                     @else
-                                    <a href="{{url('dashboard')}}" class="dropdown-item">Dashboard</a>
+                                    <a style="font-weight:bold;width:80px"  href="{{url('dashboard')}}" class="dropdown-item">Dashboard</a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a style="color:red;width:80px" class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
