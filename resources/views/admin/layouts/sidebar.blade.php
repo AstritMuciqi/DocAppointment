@@ -35,7 +35,7 @@
 
                                   @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Doctor</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="fas fa-user-md"></i><span>Doctor</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
                                         <a href="{{route('doctor.create')}}" class="menu-item">Create</a>
                                         <a href="{{route('doctor.index')}}" class="menu-item">View</a>
@@ -45,7 +45,7 @@
                                 @endif
                                   @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Appointment Time</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-clock"></i><span>Appointment Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
                                         <a href="{{route('appointment.create')}}" class="menu-item">Create</a>
                                         <a href="{{route('appointment.index')}}" class="menu-item">Check</a>
@@ -56,7 +56,7 @@
 
                                 @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patients</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-users"></i><span>Patients</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
                                         <a href="{{route('patients.today')}}" class="menu-item">Patients(today)</a>
                                         <a href="{{route('prescribed.patients')}}" class="menu-item">All patients(prescription)</a>
@@ -70,7 +70,7 @@
 
                                   @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                  <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patient Appointment</span> <span class="badge badge-danger"></span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-message-square"></i><span>Patient Appointment</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
                                         <a href="{{route('patient')}}" class="menu-item">Today Appointment</a>
                                         <a href="{{route('all.appointments')}}" class="menu-item">All Time Appointment</a>

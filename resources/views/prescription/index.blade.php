@@ -11,7 +11,7 @@
               @endif
               <div class="card-header" >
        
-                     Appointment ({{$bookings->count()}})
+                Appointment ({{$bookings->count()}})
                  </div>
 
                 <div class="card-body">
