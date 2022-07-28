@@ -22,5 +22,10 @@
         "vue": "^2.6.12",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "moment": "^2.29.4",
+        "vue-spinner": "^1.0.4",
+        "vuejs-datepicker": "^1.6.2"
     }
 }

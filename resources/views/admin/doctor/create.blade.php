@@ -121,8 +121,8 @@
                             <label for="">Specialist</label>
                             <select name="department" class="form-control">
                                 <option vlaue="">Please select department</option>
-                                $foreach(App\Department::all() as $d)
-                                    <option value="{{$d->department}}">{{$d->department}}</option>
+                                @foreach(App\Models\Department::all() as $department)
+                                    <option value="{{$department->department}}">{{$department->department}}</option>
                                 @endforeach
                             </select>
                             @error('department')

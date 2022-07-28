@@ -64,8 +64,8 @@
                     </button>
                     @else
                     <p>Please Login to make Appointment</p>
-                    <a href="/register">Register</a>
-                    <a href="/login">Login</a>
+                    <a style="border:none" class="btn btn-outline-info" href="/login">Login</a>
+                    <a style="border:none" class="btn btn-outline-primary" href="/register">Register</a>
                     @endif
                 </div>
         

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AppointmentController;
 
 
@@ -72,5 +71,5 @@ Route::group(['middleware'=>['auth','doctor']],function(){
 
 });
 
-// Route::post('/api/doctors','FrontendController@getDoctors');
-// Route::get('/api/doctors/today','FrontendController@doctorToday');
+Route::post('/api/doctors','App\Http\Controllers\FrontendController@getDoctors');
+Route::get('/api/doctors/today','App\Http\Controllers\FrontendController@doctorToday');
