@@ -52,7 +52,7 @@
                                                 @if(count($departments)>0)
                                                 @foreach($departments as $department)
                                                 <tr>
-                                                    <td>{{$department->department}}</td>
+                                                    <td style="text-transform:capitalize">{{$department->department}}</td>
                                                   
                                                     <td>
                                                         <div style="display:flex;justify-content:center;" class="table-actions">

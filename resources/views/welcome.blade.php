@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <img src="/banner/online-medicine-concept_160901-152.jpg" class="img-fluid">
+            <img src="/banner/online-medicine-concept_160901-152.webp" class="img-fluid">
         </div>
 
         <div style="margin-top:40px" class="col-md-6"> 
-            <h2>Create an account & Book you appointment</h2>
+            <h2>Create an account & Book your appointment</h2>
             <p>Mobile apps allow providers to effectively streamline communication between patients, providers, and their caregivers and allows for 24/7 management of a patient's condition along with the ability to personalize healthcare per patient.</p>
                 @if(!(auth()->check()))
                 <div class="mt-5">

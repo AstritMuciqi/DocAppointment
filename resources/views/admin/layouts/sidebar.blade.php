@@ -15,9 +15,11 @@
                         <div class="nav-container">
                             <nav id="main-menu-navigation" class="navigation-main">
                                 <div class="nav-lavel">Navigation</div>
+                                @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item active">
                                     <a href="{{url('dashboard')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                                 </div>
+                                @endif
                               <!--   <div class="nav-item">
                                     <a href="pages/navbar.html"><i class="ik ik-menu"></i><span>Navigation</span> <span class="badge badge-success">New</span></a>
                                 </div> -->

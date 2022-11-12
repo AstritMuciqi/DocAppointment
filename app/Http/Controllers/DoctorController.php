@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
+use Auth;
+
 
 class DoctorController extends Controller
 {
@@ -15,7 +18,12 @@ class DoctorController extends Controller
     public function index()
     {
         
-        $users = User::get();
+        $users = User::whereHas(
+            'role', function($q){
+                $q->where('name','Doctor')->orWhere('name', 'Admin');
+            }
+        )->get();
+        $users = $users->except([1,Auth::user()->id]);
         return view('admin.doctor.index',compact('users'));
     }
 

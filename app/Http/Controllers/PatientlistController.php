@@ -10,7 +10,7 @@ class PatientlistController extends Controller
 {
     public function index(Request $request)
     {
-        date_default_timezone_set('Australia/Melbourne');
+        date_default_timezone_set('Europe/Tirane');
         if($request->date){
 
             $bookings = Booking::latest()->where('date',$request->date)->get();

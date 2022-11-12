@@ -1,7 +1,7 @@
 <template>
    <div>
        <div class="card">
-        <div class="card-header">Find Doctors</div>
+        <div class="card-header"><b style="font-size:16px">Find Doctors</b></div>
         <div class="card-body">
             <datepicker class="my-datepicker" calendar-class="my-datepicker_calendar" :disabledDates="disabledDates" :format="customDate" v-model="time" :inline=true></datepicker>
         </div>
@@ -10,7 +10,7 @@
       
 
        <div class="card">
-        <div class="card-header">Doctors</div>
+        <div class="card-header"><b style="font-size:16px">Doctors</b></div>
         <div class="card-body">
             <table class="table table-stiped">
                 <thead>
